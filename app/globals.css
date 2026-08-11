@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --muted: #737373;
+  --muted-light: #a3a3a3;
+
+  --border: #e5e5e5;
+  --border-light: #f0f0f0;
+
+  --surface: #fafafa;
+  --surface-hover: #f5f5f5;
+
+  --black: #171717;
+  --white: #ffffff;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+  font: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: #171717;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+
+/* =========================================================
+   MANAGER X APP
+========================================================= */
+
+.manager-app {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.manager-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.manager-card {
+  background: #ffffff;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+}
+
+
+/* =========================================================
+   SMALL LABEL
+========================================================= */
+
+.manager-label {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.manager-button-primary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background: var(--black);
+  color: var(--white);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.manager-button-primary:hover {
+  background: #262626;
+}
+
+.manager-button-primary:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+========================================================= */
+
+.manager-button-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 18px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--white);
+  color: var(--foreground);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.manager-button-secondary:hover {
+  background: var(--surface);
+  border-color: #d4d4d4;
+}
+
+.manager-button-secondary:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   STATUS DOT
+========================================================= */
+
+.manager-status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 999px;
+
+  background: #171717;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.manager-divider {
+  width: 100%;
+  height: 1px;
+
+  background: var(--border-light);
+}
+
+
+/* =========================================================
+   TEXT HELPERS
+========================================================= */
+
+.manager-muted {
+  color: var(--muted);
+}
+
+.manager-subtle {
+  color: var(--muted-light);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.manager-loading {
+  width: 18px;
+  height: 18px;
+
+  border: 2px solid #e5e5e5;
+  border-top-color: #171717;
+
+  border-radius: 50%;
+
+  animation: manager-spin 0.7s linear infinite;
+}
+
+@keyframes manager-spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.manager-empty {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  min-height: 240px;
+
+  padding: 32px;
+
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .manager-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
